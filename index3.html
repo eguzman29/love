@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #fff8dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .card {
+            width: 90vw;
+            height: 90vh;
+            background-color: #fdf5c9;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #d4a017;
+            text-align: center;
+        }
+        .heart {
+            color: red;
+        }
+        .flower-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .flower {
+            width: 100px;
+            height: auto;
+            position: absolute;
+        }
+        .floating-image {
+            position: absolute;
+            width: 40px;
+            height: auto;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); opacity: 1; }
+            50% { transform: translateY(-50px); opacity: 0.5; }
+            100% { transform: translateY(0px); opacity: 1; }
+        }
+        .side-image {
+            position: absolute;
+            right: 400px;
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Te quiero mucho <span class="heart">❤️</span></h1>
+        <div class="flower-container" id="flowerContainer"></div>
+        <img src="l.jpg" class="side-image" id="sideImage">
+    </div>
+    <script>
+        const flowerContainer = document.getElementById('flowerContainer');
+        const flowerImages = [
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+            'FA.png',
+        ];
+        const floatingImages = [
+            'FA.png',
+            'FA.png',
+        ];
+        
+        function addFlowers() {
+            flowerImages.forEach((src) => {
+                let img = document.createElement('img');
+                img.src = src;
+                img.classList.add('flower');
+                img.style.top = `${Math.random() * 200}px`;
+                img.style.left = `${Math.random() * 200}px`;
+                flowerContainer.appendChild(img);
+            });
+        }
+        
+        function addFloatingImages() {
+            floatingImages.forEach(() => {
+                let img = document.createElement('img');
+                img.src = floatingImages[Math.floor(Math.random() * floatingImages.length)];
+                img.classList.add('floating-image');
+                img.style.top = `${Math.random() * window.innerHeight}px`;
+                img.style.left = `${Math.random() * window.innerWidth}px`;
+                document.body.appendChild(img);
+            });
+        }
+        
+        addFlowers();
+        setInterval(addFloatingImages, 2000);
+    </script>
+</body>
+</html>
