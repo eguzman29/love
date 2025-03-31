@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Ti</title>
     <style>
+  /* Reset básico para márgenes y padding */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Fuente responsive (tamaño base + unidades relativas) */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Contenedor flexible para móviles */
+  .container {
+    width: 100%;
+    max-width: 1200px; /* Límite para pantallas grandes */
+    margin: 0 auto;
+    padding: 0 15px; /* Espaciado lateral en móviles */
+  }
+
+  /* Imágenes responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Media Queries para ajustes específicos */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  
         body {
             margin: 0;
             overflow: hidden;
