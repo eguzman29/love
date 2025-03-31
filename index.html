@@ -96,8 +96,10 @@
             100% { transform: translateY(0px); opacity: 1; }
         }
         .side-image {
-            position: absolute;
-            right: 400px;
+             position: absolute;
+            bottom: -10px;    /* Ajusta la distancia desde la parte inferior */
+            left: 50%;       /* Centrado horizontal */
+            transform: translateX(-50%); /* Corrige el centrado */
             width: 150px;
             height: auto;
         }
